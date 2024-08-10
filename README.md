@@ -1,6 +1,6 @@
 # EcodeCamp Task Number One
 
-## Simple Command Line Calculator
+## Simple Calculator
 
 Objective: Develop a command-line calculator application to perform basic arithmetic operations.
 
@@ -23,7 +23,7 @@ Task Roadmap:
 
 ## Steps to Run
 
-- You can clone this repository:
+- Clone this repository:
 
 ```bash
     git clone https://github.com/iamluckycheema/EcodeCamp_Task_Number_One.git
@@ -59,7 +59,7 @@ Supports longer expressions like 2+3 or 3-0+6 or 3+(2*4)*9
 - Linux/Mac:
 
 ```bash
-source venv/bin/activate
+  source venv/bin/activate
 ```
 
 - Windows:
@@ -71,7 +71,7 @@ source venv/bin/activate
 - Install required packages:
 
 ```bash
-pip install -r requirements.txt
+  pip install -r requirements.txt
 ```
 
 - Run:
