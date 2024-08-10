@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="calculator">
+        <form method="POST">
+            <div class="display">{{ expression }} <br>
+            {{ result }}</div>
+            <div class="buttons">
+                <input type="button" value="7" onclick="appendNumber('7')">
+                <input type="button" value="8" onclick="appendNumber('8')">
+                <input type="button" value="9" onclick="appendNumber('9')">
+                <input type="button" value="/" onclick="appendOperator('/')">
+                <input type="button" value="4" onclick="appendNumber('4')">
+                <input type="button" value="5" onclick="appendNumber('5')">
+                <input type="button" value="6" onclick="appendNumber('6')">
+                <input type="button" value="*" onclick="appendOperator('*')">
+                <input type="button" value="1" onclick="appendNumber('1')">
+                <input type="button" value="2" onclick="appendNumber('2')">
+                <input type="button" value="3" onclick="appendNumber('3')">
+                <input type="button" value="-" onclick="appendOperator('-')">
+                <input type="button" value="0" onclick="appendNumber('0')">
+                <input type="button" value="(" onclick="appendOperator('(')">
+                <input type="button" value=")" onclick="appendOperator(')')">
+                <input type="button" value="+" onclick="appendOperator('+')">
+                <input type="button" value="C" onclick="clearExpression()">
+                <input type="button" value="." onclick="appendOperator('.')">
+                <input type="button" value="%" onclick="appendOperator('%')">
+                <input type="submit" value="=">
+            </div>
+            <input type="hidden" name="expression" id="expression" value="{{ expression }}">
+        </form>
+    </div>
+
+    <script>
+        function appendNumber(number) {
+            document.getElementById('expression').value += number;
+            document.querySelector('.display').innerHTML += number;
+        }
+        
+        function appendOperator(operator) {
+            document.getElementById('expression').value += operator;
+            document.querySelector('.display').innerHTML += operator;
+        }
+
+        function clearExpression() {
+            document.getElementById('expression').value = '';
+            document.querySelector('.display').innerHTML = '';
+        }
+
+        document.addEventListener('keydown', function(event) {
+            const key = event.key;
+            if (!isNaN(key)) {  // If key is a number
+                appendNumber(key);
+            } else if (key === '+' || key === '-' || key === '*' || key === '/' || key === '%' || key === '(' || key === ')' || key === '.') {
+                appendOperator(key);
+            } else if (key === 'Enter') {  // If Enter key is pressed
+                document.querySelector('form').submit();
+            } else if (key === 'Backspace') {  // If Backspace is pressed
+                let expression = document.getElementById('expression').value;
+                document.getElementById('expression').value = expression.slice(0, -1);
+                document.querySelector('.display').innerHTML = expression.slice(0, -1);
+            } else if (key.toLowerCase() === 'c') {  // If C or c is pressed for clear
+                clearExpression();
+            }
+        });
+    </script>
+</body>
+</html>
