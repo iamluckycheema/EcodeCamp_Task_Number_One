@@ -1,6 +1,4 @@
-# EcodeCamp Task Number One
-
-## Simple Calculator
+# Simple Calculator
 
 Objective: Develop a command-line calculator application to perform basic arithmetic operations.
 
@@ -19,7 +17,7 @@ Task Roadmap:
 - Deployment:
   1. Make a simple UI using flask or gradio. -Done
 
-## Author: Lucky Ali
+### Author: Lucky Ali
 
 ## Steps to Run
 
